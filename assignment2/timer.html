@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="timer.css" rel="stylesheet" />
+    <title>Timer</title>
+</head>
+<body>
+    <div id="timer" jsaction="mousedown:FaOIXc">
+        <div>
+          
+            <span class="digits">00</span>
+            <span class="char">h</span>
+       
+            <span class="digits">00</span>
+            <span class="char">m</span>
+        
+            <span class="digits">00</span>
+            <span class="char">s</span>
+            <menu id="menu">
+                <button  onclick="start()">Start</button>
+                <button onclick="pause()">pause</button>
+                <button onclick="stop()">Reset</button>
+            </menu>
+        </div>
+
+
+    </div>
+
+    <script>
+        var digits = document.getElementsByClassName('digits');
+        var begin = document.getElementById('start');
+        var interval = 0;
+        var mins = 0;
+        var hours = 0;
+        var time;
+        function start() {
+            if (time == null) {
+                time = setInterval(() => {
+                    interval++;
+                    if (interval <= 60) {
+                        if (interval != 60) {
+                            if (interval < 10) {
+                                digits[digits.length - 1].innerText = '0' + interval;
+                            } else {
+                                digits[digits.length - 1].innerText = interval;
+                            }
+                        } else {
+                            digits[digits.length - 1].innerText = '00';
+                            digits[1].innerText = '01';
+
+                        }
+
+
+                    } else if (interval > 60 && mins < 59) {
+                        mins++;
+                        interval = 1;
+                        if (mins < 10) {
+                            digits[1].innerText = '0' + mins;
+                        } else {
+                            digits[1].innerText = mins;
+                        }
+                        if (interval === 1) {
+                            digits[digits.length - 1].innerText = '0' + interval;
+                        }
+
+                    } else if (mins >= 59 && hours <= 24) {
+                        hours++;
+                        mins = 0;
+                        interval = 1;
+                        if (hours < 10) {
+                            digits[0].innerText = '0' + hours;
+                        } else {
+                            digits[0].innerText = hours;
+                        }
+                        if (interval === 1) {
+                            digits[1].innerText = '0' + mins;
+                            digits[digits.length - 1].innerText = '0' + interval;
+
+                        }
+                    }
+
+                }, 1000);
+
+            }else return
+            
+        }
+        function stop() {
+            clearInterval(time);
+            time = undefined;
+            for (let i = 0; i < digits.length; i++) {
+                digits[i].innerText = '00';
+            }
+            interval = 0;
+            mins = 0;
+            hours = 0;
+        }
+        function pause() {
+            clearInterval(time);
+            time = null;
+        }
+        
+        
+
+    </script>
+</body>
+</html>

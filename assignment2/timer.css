@@ -1,0 +1,30 @@
+﻿#timer {
+    font-size: 10rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.digits {
+    line-height:1.2;
+}
+.char {
+    font-size: 4rem;
+    padding-right: 20px;
+    line-height:1.2;
+}
+#menu {
+    display: flex;
+    align-items: flex-end;
+    justify-content:space-around;
+    margin:5px;
+    padding:5px;
+    
+}
+    #menu button {
+        width:80px;
+        height:80px;
+        border-radius:50%;
+        cursor:pointer;
+        outline:none;
+    }
