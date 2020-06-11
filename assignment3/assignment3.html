@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery Assignment</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <style>
+        body {
+            width:100vw;
+            height:100vh;
+        }
+    </style>
+</head>
+<body>
+    <div>Hello</div>
+    <div>bye</div>
+    <div>good</div>
+    <div>excellent</div>
+    <div>wonderful</div>
+    <div>terrible</div>
+    <output></output>
+    <p class="p1"></p>
+    <p class="p"></p>
+    <script>
+        //Q1
+        //$('output').text('The numbers of div: ' + $('div').length)
+        //$('.p1').text('DOM Texts: ')
+        //$(document).ready(function () { $('.p').html($('body').children('div')) })  
+        //Q2
+        //arr = jQuery.grep($('div'), function (n, i) { return ($(n).text().length > 4) })
+        //$('.p').html($(arr).each(function () { $(this).text() }))
+        //Q3
+        //$(document).ready(function () {
+        //    var list = $('.p')
+        //    var arr = [7, 45, 0, 12, 5];
+        //    function sort(arr) {
+        //        for (let i = 0; i < arr.length; i++) {
+        //            for (let i = 1; i < arr.length; i++) {
+        //                if (arr[i] < arr[i - 1]) {
+        //                    temp = arr[i];
+        //                    arr[i] = arr[i - 1];
+        //                    arr[i - 1] = temp;
+        //                }
+        //            }
+        //        }
+        //    }
+        //    sort(arr);
+        //    $.each(arr, function (i, n) { list.append('<span>' + n + ',' + '</span>') })})
+        //Q4
+        //splice(m,n,content)
+        //eg.
+        //var arr = [1, 3, 4, 5];
+        //arr.splice(1, 2, 7, 8)
+        //splice will chang arr start from index 1 and change 2 items.
+        //Q5
+        //$('body').mousemove((ev) => {
+        //    var coordinates = '(' + ev.pageX + ',' + ev.pageY + ')';
+        //    $('.p').text('(x,y): ' + coordinates);
+        //})
+    </script>
+</body>
+</html>
