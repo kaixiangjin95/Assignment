@@ -12,6 +12,13 @@
             width:100vw;
             height:100vh;
         }
+        #tooltip{
+        width: 200px;
+        position: absolute;
+        display:block;
+        border: 1px solid blue;
+        text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -23,15 +30,15 @@
     <div>terrible</div>
     <output></output>
     <p class="p1"></p>
-    <p class="p"></p>
+    <p class="p" id='tooltip'></p>
     <script>
         //Q1
-        //$('output').text('The numbers of div: ' + $('div').length)
-        //$('.p1').text('DOM Texts: ')
-        //$(document).ready(function () { $('.p').html($('body').children('div')) })  
+        // $('output').text('The numbers of div: ' + $('div').length)
+        // $('.p1').text('DOM Texts: ')
+        // $(document).ready(function () { $('.p').html($('body').children('div')) })
         //Q2
-        //arr = jQuery.grep($('div'), function (n, i) { return ($(n).text().length > 4) })
-        //$('.p').html($(arr).each(function () { $(this).text() }))
+        // arr = jQuery.grep($('div'), function (n, i) { return ($(n).text().length > 4) })
+        // $('.p').html($(arr).each(function () { $(this).text() }))
         //Q3
         //$(document).ready(function () {
         //    var list = $('.p')
@@ -56,10 +63,18 @@
         //arr.splice(1, 2, 7, 8)
         //splice will chang arr start from index 1 and change 2 items.
         //Q5
-        //$('body').mousemove((ev) => {
-        //    var coordinates = '(' + ev.pageX + ',' + ev.pageY + ')';
-        //    $('.p').text('(x,y): ' + coordinates);
-        //})
+        var mouseX,mouseY,coordinates;
+        $("body").mousemove(function(ev){
+          mouseX = ev.pageX;
+          mouseY = ev.pageY;
+          coordinates = '(' + ev.pageX + ',' + ev.pageY + ')';
+        // populate tooltip string
+        $('#tooltip').text('(x,y): ' + coordinates);
+        // show tooltip
+        $('#tooltip').css('display','block')
+        // position tooltip relative to mouse coordinates
+        $('#tooltip').css({'top':mouseY-16,'left':mouseX});
+       })
     </script>
 </body>
 </html>
